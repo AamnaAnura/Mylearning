@@ -1,6 +1,29 @@
 #include <iostream>
 #include <vector>
 using namespace std;
+// 4.----------------- BUBBLE SORT using recurrsive method ----------------------
+class Solution
+{
+public:
+    vector<int> bubbleSort(vector<int> &nums)
+    {
+        bubbleHelper(nums, nums.size());
+        return nums;
+    }
+
+private:
+    void bubbleHelper(vector<int> &nums, int n)
+    {
+        if (n == 1)
+            return;
+        for (int j = 0; j < n - 1; j++)
+        {
+            if (nums[j] > nums[j + 1])
+                swap(nums[j], nums[j + 1]);
+        }
+        bubbleHelper(nums, n - 1);
+    }
+};
 
 // 3.------------------INSERTION SORT {takes the element and places it in its correct position. checks with the last and the second last element of the considered array (i.e. loop till i) and reorders it accordingly.} ---------
 class Solution
