@@ -1,7 +1,47 @@
 #include <iostream>
 #include <climits>
 #include <vector>
+#include <set>
 using namespace std;
+// 7.------------------------ LINEAR SEARCH ------------
+class Solution {
+public:
+    int linearSearch(vector<int>& nums, int target) {
+        //your code goes here
+        for (int i = 0; i < nums.size(); i++){
+            if (nums[i] == target) return i;
+        }
+        return -1;
+    }
+};
+
+// 6.------------------- find the missing element from the array containing distinct values in the range from 0 to n (inclusive) ---------------
+class Solution {
+public:
+    int missingNumber(vector<int>& nums) {
+        set <int> s;
+        for (auto x : nums){
+            if (x != 0)
+            s.insert(x);
+        } int i = 0;
+        for (auto x : s){
+        if (x == i+1) i++;
+            else return i+1;
+        }
+        if (i!= nums.size()) 
+        i ++;
+        return i; 
+    }
+private :
+    int MN(vector <int> &nums){
+        int n = nums.size();
+        int sum = n * (n + 1) / 2; 
+        int arrSum = 0;
+        for (int x : nums) arrSum += x;
+        return sum - arrSum;
+    
+    }
+};
 
 // 5.---------- to remove the duplicate elements from an array {to replace the first k elements with the unique elements of the array ; k being the number of unique elements} -----------
 class Solution {
