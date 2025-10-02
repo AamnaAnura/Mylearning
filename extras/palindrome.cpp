@@ -1,3 +1,7 @@
+#include <iostream>
+#include <vector>
+#include <limits.h>
+using namespace std;
 class Solution {
 public:
     bool isPalindrome(int x) {
