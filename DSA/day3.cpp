@@ -5,6 +5,7 @@
 #include <vector>
 #include <set>
 using namespace std;
+
 // 7.------------------------ LINEAR SEARCH ------------
 class Solution {
 public:
