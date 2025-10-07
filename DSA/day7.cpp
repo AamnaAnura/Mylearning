@@ -1,8 +1,44 @@
 // Oct 7th 2025
 
 #include <iostream>
+#include <map>
 #include <vector>
+#include <climits>
 using namespace std;
+// 3. --------------Given an integer array nums, find the subarray with the largest sum and return the sum of the elements present in that subarray.---------------
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+        int n = nums.size();
+        int maxSum = INT_MIN;
+        int sum = 0;
+        for (int i = 0; i < n; i++){
+            sum = 0;
+            for (int j = i; j < n; j++){
+                sum += nums[j];
+                if ( sum > maxSum) maxSum = sum;
+            }
+        }
+        return maxSum;
+    }
+};
+
+// 2. Majority Element
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        map <int ,int > freq;
+        int n = nums.size();
+        for(int i = 0; i < n; i++){
+            freq[nums[i]]++;
+        }
+        for (auto x: freq){
+            if (x.second > (n/2)) return x.first ;
+        }
+        return -1;
+    }
+};
+
 // 1.-------- Two Sum {return the indices of the 2 elements that have the sum of the target}--------
 vector<int> twoSum(vector<int> &nums, int target)
 {
